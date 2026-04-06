@@ -1,0 +1,16 @@
+[project]
+name = "binox-agent"
+version = "0.1.0"
+description = "Mock-first content generation agent for Binox I3"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115",
+  "uvicorn>=0.30",
+]
+
+[project.scripts]
+binox-demo = "binox_agent.cli:main"
+
+[tool.uvicorn]
+factory = false
