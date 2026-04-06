@@ -2,6 +2,13 @@
 
 A mock-first implementation of the Binox I3 take-home task. This project generates stock-market themed content, stores it in a local mock social feed, simulates engagement, and generates contextual replies for questions, compliments, and critiques.
 
+## Release Snapshot (v0.1.0)
+
+- Track: Interns - I3 Content Generation Machine with Reply Capability
+- Theme: Stock market speculation watchlist
+- Demo mode: Mock social API (no external keys required)
+- Orchestration: Local Docker Compose + n8n
+
 ## What it does
 
 - Generates themed market-watchlist posts with deterministic templates
@@ -20,7 +27,6 @@ A mock-first implementation of the Binox I3 take-home task. This project generat
 
 ## Project Structure
 
-- `src/binox_agent/service.py` - HTTP API used by n8n
 - `src/binox_agent/service.py` - HTTP API and browser landing page
 - `src/binox_agent/content.py` - content generation logic
 - `src/binox_agent/reply.py` - reply classifier and generator
@@ -31,6 +37,25 @@ A mock-first implementation of the Binox I3 take-home task. This project generat
 - `docker-compose.yml` - local n8n setup
 - `architecture.md` - implementation overview
 - `evaluation.md` - self-assessment and trade-offs
+
+## Demo Preview
+
+Use the browser demo at `http://localhost:8000/` and click `Run full demo`.
+
+Example response from `/demo/full-loop`:
+
+```json
+{
+	"post": {
+		"content": "Market desk: AI infrastructure is showing a setup worth tracking. Watch the levels, not the noise."
+	},
+	"replies": [
+		{"kind": "question", "reply": "Good question. I'm watching AI infrastructure for confirmation, but I'd treat this as a scenario, not a guarantee."},
+		{"kind": "compliment", "reply": "Appreciate it. I'm keeping the thesis simple: track the setup, wait for confirmation, and avoid forcing entries."},
+		{"kind": "critique", "reply": "Fair pushback. The point here is to surface a watchlist idea, not claim certainty. I'd rather keep the risk framing explicit."}
+	]
+}
+```
 
 ## Setup
 
